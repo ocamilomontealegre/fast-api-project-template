@@ -11,7 +11,7 @@ def create_app() -> FastAPI:
     injector = Injector([AppModule()])
 
     # Inject the HealthController with dependencies resolved
-    health_controller = injector.get(HealthController)
+    router = injector.get()
 
     # Include the controller's router in the app
     app.include_router(health_controller.router, prefix="/v1", tags=["Health"])
