@@ -7,11 +7,12 @@ class HealthController:
     def __init__(self, health_service: HealthService):
         self._health_service = health_service
         self._router = APIRouter()
-
-        @self._router.get("/health")
-        def check():
+        self._register_routes()
+    
+    def _register_routes(self):
+        @self._router.get("/")
+        async def check():
             return self._health_service.check()
-        
-    @property
-    def router(self):
+    
+    def get_router(self) -> APIRouter:
         return self._router

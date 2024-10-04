@@ -2,19 +2,15 @@ from fastapi import FastAPI
 from injector import Injector
 from uvicorn import run
 from app.app_module import AppModule
-from health.controllers.health_controller import HealthController
+from app.routers.app_router import AppRouter
 
 def create_app() -> FastAPI:
     app = FastAPI()
 
-    # Initialize the DI container with the AppModule
     injector = Injector([AppModule()])
 
-    # Inject the HealthController with dependencies resolved
-    router = injector.get()
-
-    # Include the controller's router in the app
-    app.include_router(health_controller.router, prefix="/v1", tags=["Health"])
+    router = AppRouter(injector)
+    app.include_router(router.get_router(), prefix="/api/v1", tags=["App"])
 
     return app
 
