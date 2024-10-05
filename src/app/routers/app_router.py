@@ -11,8 +11,8 @@ class AppRouter:
 
     def register_routes(self):
         health_controller = self._injector.get(HealthController)
-        
+
         self._router.include_router(health_controller.get_router(), prefix="/health")
-    
+
     def get_router(self) -> APIRouter:
         return self._router

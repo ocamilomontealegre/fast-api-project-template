@@ -1,1 +1,1 @@
-HEALTH_ENDPOINT = "health"
+HEALTH_ENDPOINT: str = "health"

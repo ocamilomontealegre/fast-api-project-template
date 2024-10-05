@@ -1,6 +1,8 @@
 from fastapi import APIRouter
 from injector import inject
 from health.services.health_service import HealthService
+from health.models.health_message_model import HealthMessage
+
 
 class HealthController:
     @inject
@@ -8,11 +10,11 @@ class HealthController:
         self._health_service = health_service
         self._router = APIRouter()
         self._register_routes()
-    
+
     def _register_routes(self):
         @self._router.get("/")
-        async def check():
+        async def check() -> HealthMessage:
             return self._health_service.check()
-    
+
     def get_router(self) -> APIRouter:
         return self._router
