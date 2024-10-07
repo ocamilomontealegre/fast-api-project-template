@@ -12,7 +12,13 @@ class HealthController:
         self._register_routes()
 
     def _register_routes(self):
-        @self._router.get("/")
+        @self._router.get(
+            "/",
+            response_model=HealthMessage,
+            tags=["Health"],
+            summary="Check application status",
+            description="Check the availability of the server",
+        )
         async def check() -> HealthMessage:
             return self._health_service.check()
 
