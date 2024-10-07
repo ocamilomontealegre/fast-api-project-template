@@ -1,34 +1,14 @@
-from fastapi import FastAPI
-from injector import Injector
 from uvicorn import run
-from app.app_module import AppModule
-from app.routers.app_router import AppRouter
-from common.middleware.http_logger_middleware import HTTPLoggingMiddleware
-from common.env.app_config import getAppEnvVariables
+from app.app_builder import AppBuilder
+from common.env.env_config import get_env_variables
 
-appVariables = getAppEnvVariables()
-
-
-def create_app() -> FastAPI:
-    app = FastAPI()
-
-    app.add_middleware(HTTPLoggingMiddleware)
-
-    injector = Injector([AppModule()])
-
-    router = AppRouter(injector)
-    app.include_router(router.get_router(), prefix="/api/v1", tags=["App"])
-
-    return app
-
-
-app = create_app()
+app_env_variables = get_env_variables().app
+app = AppBuilder().set_http_logging_middleware().set_router().build()
 
 if __name__ == "__main__":
     run(
         "main:app",
-        host="127.0.0.1",
-        port=appVariables.app_port,
+        host=app_env_variables.host,
+        port=app_env_variables.port,
         reload=True,
-        log_level="info",
     )
