@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from injector import Injector
 from app.app_module import AppModule
 from app.routers.app_router import AppRouter
-from common.middleware import HTTPLoggingMiddleware
+from common.interceptors import HTTPLoggingInterceptor
 from common.env import get_env_variables
 
 
@@ -22,7 +22,7 @@ class AppBuilder:
         return self
 
     def set_http_logging_middleware(self) -> "AppBuilder":
-        self.__app.add_middleware(HTTPLoggingMiddleware)
+        self.__app.add_middleware(HTTPLoggingInterceptor)
         return self
 
     def set_router(self) -> "AppBuilder":
