@@ -1,0 +1,6 @@
+[1;33m[FastAPI] 12612 | [0m[1;37mOct-09-24 21:35:29 | [0m[1;33m[HTTPLoggingInterceptor] | [0mINFO: 📄 outgoing response: STATUS 200 | incoming request: METHOD GET | URL /api/v1/health
+[1;33m[FastAPI] 12612 | [0m[1;37mOct-09-24 21:36:02 | [0m[1;33m[HTTPLoggingInterceptor] | [0mINFO: 📄 outgoing response: STATUS 200 | incoming request: METHOD GET | URL /api/v1/health
+[1;33m[FastAPI] 4960 | [0m[1;37mOct-09-24 21:36:45 | [0m[1;33m[HTTPLoggingInterceptor] | [0mINFO: 📄 outgoing response: STATUS 200 | incoming request: METHOD GET | URL /api/v1/health
+[1;33m[FastAPI] 6152 | [0m[1;37mOct-09-24 21:38:34 | [0m[1;33m[HTTPLoggingInterceptor] | [0mINFO: 📄 outgoing response: STATUS 200 | incoming request: METHOD GET | URL /api/v1/health
+[1;33m[FastAPI] 11128 | [0m[1;37mOct-09-24 21:39:28 | [0m[1;33m[HTTPLoggingInterceptor] | [0mINFO: 📄 outgoing response: STATUS 200 | incoming request: METHOD GET | URL /api/v1/health
+[1;33m[FastAPI] 21752 | [0m[1;37mOct-09-24 21:40:04 | [0m[1;33m[HTTPLoggingInterceptor] | [0mINFO: 📄 outgoing response: STATUS 200 | incoming request: METHOD GET | URL /api/v1/health
