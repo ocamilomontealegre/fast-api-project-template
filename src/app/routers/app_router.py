@@ -14,7 +14,8 @@ class AppRouter:
         health_controller = self._injector.get(HealthController)
 
         self._router.include_router(
-            health_controller.get_router(), prefix=f"{AppEndpoints.HEALTH.value}"
+            health_controller.get_router(),
+            prefix=f"{AppEndpoints.HEALTH.value}",
         )
 
     def get_router(self) -> APIRouter:

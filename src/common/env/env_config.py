@@ -5,7 +5,9 @@ from common.env.open_api_env_config import OpenAPIEnvVariables
 
 
 class EnvVariables(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_nested_delimiter="_")
+    model_config = SettingsConfigDict(
+        env_file=".env", env_nested_delimiter="_"
+    )
 
     app: AppEnvVariables
     open_api: OpenAPIEnvVariables

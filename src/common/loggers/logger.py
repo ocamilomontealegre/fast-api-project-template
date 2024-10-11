@@ -37,9 +37,7 @@ class AppLogger:
             retention="5 days",
             compression="zip",
             format=(
-                f"{ANSIColors.YELLOW.value}[FastAPI] {{extra[pid]}} | {ANSIColors.RESET.value}"
-                f"{ANSIColors.WHITE.value}{{time:MMM-DD-YY HH:mm:ss}} | {ANSIColors.RESET.value}"
-                f"{ANSIColors.YELLOW.value}[{{extra[label]}}] | {ANSIColors.RESET.value}"
+                "[FastAPI] {extra[pid]} | {time:MMM-DD-YY HH:mm:ss} | [{extra[label]}] | "
                 "<level>{level}</level>: <level>{message}</level>"
             ),
         )

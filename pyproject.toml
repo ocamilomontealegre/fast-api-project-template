@@ -19,6 +19,12 @@ injector = "^0.22.0"
 black = "^24.10.0"
 flake8 = "^7.1.1"
 
+[tool.black]
+line-length = 79
+target-version = ["py310", "py311", "py312"]
+check = true
+
+
 [tool.poetry.scripts]
 start = "commands:start"
 lint = "commands:lint"

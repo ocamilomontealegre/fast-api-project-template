@@ -1,7 +1,3 @@
-from typing import Dict, List, Union
+from typing import Dict, List, Union, Any
 
-
-DataType = Union[
-    Dict[str, Union[str, int, float, bool, None]],
-    List[Union[str, int, float, bool, None]],
-]
+DataType = Union[Dict[str, Any], List[Any]]

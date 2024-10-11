@@ -18,5 +18,5 @@ if __name__ == "__main__":
         host=app_env_variables.host,
         port=app_env_variables.port,
         reload=True,
-        log_level="error",
+        log_level="debug",
     )

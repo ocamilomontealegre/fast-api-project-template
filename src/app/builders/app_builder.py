@@ -2,8 +2,11 @@ from fastapi import FastAPI, HTTPException
 from injector import Injector
 from app.app_module import AppModule
 from app.routers.app_router import AppRouter
-from common.interceptors import HTTPLoggingInterceptor
-from common.exception_handlers import GeneralExceptionHandler, HTTPExceptionHandler
+from common.interceptors import HTTPInterceptor
+from common.exception_handlers import (
+    GeneralExceptionHandler,
+    HTTPExceptionHandler,
+)
 from common.env import get_env_variables
 
 
@@ -23,7 +26,7 @@ class AppBuilder:
         return self
 
     def set_http_logging_middleware(self) -> "AppBuilder":
-        self.__app.add_middleware(HTTPLoggingInterceptor)
+        self.__app.add_middleware(HTTPInterceptor)
         return self
 
     def set_exception_handlers(self) -> "AppBuilder":

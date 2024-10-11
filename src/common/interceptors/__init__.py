@@ -1,3 +1,3 @@
-from .http_logger_interceptor import HTTPLoggingInterceptor
+from .http_interceptor import HTTPInterceptor
 
-__all__ = ["HTTPLoggingInterceptor"]
+__all__ = ["HTTPInterceptor"]
