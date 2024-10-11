@@ -1,0 +1,17 @@
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
+from starlette.requests import Request
+
+class RequestValidationExceptionHandler:
+    @staticmethod
+    async def handle_exception(request: Request, exc: RequestValidationError):
+        # Custom response for validation errors
+        return JSONResponse(
+            status_code=422,
+            content={
+                "status": 422,
+                "success": False,
+                "message": "Validation error",
+                "details": exc.errors(),  # Provide the validation error details
+            },
+        )
