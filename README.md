@@ -24,7 +24,7 @@
 
 ## 👀 Motivation
 
-In today's fast-paced development landscape, building robust, scalable, and maintainable APIs is essential for modern software applications. The FastAPI Template Service Project is motivated by the need to provide a highly efficient, modular, and well-structured foundation for building RESTful APIs and microservices. 
+In today's fast-paced development landscape, building robust, scalable, and maintainable APIs is essential for modern software applications. The FastAPI Template Service Project is motivated by the need to provide a highly efficient, modular, and well-structured foundation for building RESTful APIs and microservices.
 
 Here we are not providing any specific architecture like hexagonal architecture or others, this is like a simple template where later we can customize and create the architecture we need.
 
