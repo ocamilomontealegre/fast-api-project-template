@@ -43,3 +43,28 @@ def format() -> None:
         print(f"Formatting failed with error code {e.returncode}: {error_message}")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
+
+
+def test_e2e() -> None:
+    """Run e2e tests"""
+    try:
+        check_call(["pytest", "test/e2e/"])
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+
+def test_unit() -> None:
+    """Run e2e tests"""
+    try:
+        check_call(["pytest", "test/unit/"])
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+
+def test_all() -> None:
+    """Run e2e tests"""
+    try:
+        test_unit()
+        test_all()
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")

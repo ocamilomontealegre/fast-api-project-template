@@ -19,16 +19,35 @@ injector = "^0.22.0"
 black = "^24.10.0"
 flake8 = "^7.1.1"
 pre-commit = "^4.0.1"
+pytest = "^8.3.3"
+pytest-cov = "^6.0.0"
+httpx = "^0.27.2"
 
 [tool.black]
 line-length = 88
 target-version = ["py310", "py311", "py312"]
 check = true
 
+[tool.pytest.ini_options]
+testpaths = ["test"]
+pythonpath = "src"
+addopts = "--cov=app --cov-report=term-missing --cov-report=html --cov-report=xml"
+
+[tool.coverage.run]
+command_line = "-m pytest"
+
+[tool.coverage.report]
+include = ["python_coverage_demo/*.py"]
+show_missing = true
+
 [tool.poetry.scripts]
-start = "commands:start"
-lint = "commands:lint"
-format = "commands:format"
+start = "scripts:start"
+lint = "scripts:lint"
+format = "scripts:format"
+e2e_test = "scripts:test_e2e"
+unit_test = "scripts:test_unit"
+test = "scripts:test_all"
+
 
 [build-system]
 requires = ["poetry-core"]
