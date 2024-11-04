@@ -7,12 +7,12 @@ from health.models.health_message_model import HealthMessage
 class HealthController:
     @inject
     def __init__(self, health_service: HealthService):
-        self._health_service = health_service
-        self._router = APIRouter()
-        self._register_routes()
+        self.__health_service = health_service
+        self.__router = APIRouter()
+        self.__register_routes()
 
-    def _register_routes(self):
-        @self._router.get(
+    def __register_routes(self):
+        @self.__router.get(
             "",
             response_model=HealthMessage,
             tags=["Health"],
@@ -20,7 +20,7 @@ class HealthController:
             description="Check the availability of the server",
         )
         async def check() -> HealthMessage:
-            return self._health_service.check()
+            return self.__health_service.check()
 
     def get_router(self) -> APIRouter:
-        return self._router
+        return self.__router

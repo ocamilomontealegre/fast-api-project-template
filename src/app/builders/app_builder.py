@@ -13,7 +13,7 @@ from common.env import get_env_variables
 class AppBuilder:
     def __init__(self):
         self.__app = FastAPI()
-        self.__injector = Injector([AppModule])
+        self.__injector = Injector([AppModule()])
         self.__router = AppRouter(self.__injector).get_router()
         self.__env = get_env_variables()
 
