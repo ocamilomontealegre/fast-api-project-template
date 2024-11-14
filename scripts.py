@@ -1,21 +1,28 @@
-from os import path
+from sys import executable
+# from os import path, environ
 from subprocess import CalledProcessError, check_call, run
 
 
-def get_poetry_python_path() -> str:
-    """Get the Python executable path from the Poetry virtual environment."""
-    result = run(
-        ["poetry", "env", "info", "--path"], capture_output=True, text=True, check=True
-    )
-    poetry_env_path = result.stdout.strip()
+# def get_poetry_python_path() -> str:
+#     platform: str = environ.get("PLATFORM")
+#     print(f"platform: ${platform}")
 
-    return path.join(poetry_env_path, "Scripts", "python.exe")
+#     """Get the Python executable path from the Poetry virtual environment."""
+#     result = run(
+#         ["poetry", "env", "info", "--path"], capture_output=True, text=True, check=True
+#     )
+#     poetry_env_path = result.stdout.strip()
+
+#     if platform == "mac":
+#         return path.join(poetry_env_path, "bin", "python")
+#     else:
+#         return path.join(poetry_env_path, "Scripts", "python.exe")
 
 
 def start() -> None:
     """Start uvicorn server."""
     try:
-        python_path = get_poetry_python_path()
+        python_path = executable
         print(python_path)
         check_call([python_path, "src/main.py"])
     except KeyboardInterrupt:
