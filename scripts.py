@@ -1,22 +1,5 @@
 from sys import executable
-# from os import path, environ
-from subprocess import CalledProcessError, check_call, run
-
-
-# def get_poetry_python_path() -> str:
-#     platform: str = environ.get("PLATFORM")
-#     print(f"platform: ${platform}")
-
-#     """Get the Python executable path from the Poetry virtual environment."""
-#     result = run(
-#         ["poetry", "env", "info", "--path"], capture_output=True, text=True, check=True
-#     )
-#     poetry_env_path = result.stdout.strip()
-
-#     if platform == "mac":
-#         return path.join(poetry_env_path, "bin", "python")
-#     else:
-#         return path.join(poetry_env_path, "Scripts", "python.exe")
+from subprocess import CalledProcessError, check_call
 
 
 def start() -> None:
